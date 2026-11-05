@@ -1,0 +1,63 @@
+/* Общие настройки страницы */
+body {
+    background-color: #f8f9fa; /* Светлый фон Bootstrap */
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 1. Изменяем цвет заголовка сайта (бренда в навбаре) */
+.navbar-brand {
+    color: #ffca28 !important; /* Золотистый/янтарный цвет */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* 2. Оформление для заголовков новостей */
+h2, h3 {
+    color: #17324d; /* Темно-синий цвет */
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    border-bottom: 2px solid #17324d;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+/* 3. Делаем карточки новостей более заметными */
+.news-card {
+    background-color: #ffffff;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 12px; /* Более скругленные углы */
+    border: none; /* Убираем старую рамку */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Красивая тень */
+    transition: transform 0.2s ease-in-out; /* Плавность при наведении */
+}
+
+.news-card:hover {
+    transform: translateY(-5px); /* Карточка слегка приподнимается */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Тень становится глубже */
+}
+
+/* 4. Добавляем CSS-правило для ссылок при наведении */
+a {
+    color: #0d6efd;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #ff5722; /* Оранжевый при наведении */
+    text-decoration: underline;
+}
+
+
+nav a:hover {
+    color: #ffffff !important;
+    opacity: 0.8;
+    text-decoration: none;
+}
+
