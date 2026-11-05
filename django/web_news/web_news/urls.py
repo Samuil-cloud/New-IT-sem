@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 # Импортируем views из папки web_news.news
 from news import views
 from django import forms
@@ -26,6 +28,7 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path("category/", views.category, name="category"),
     path("contacts/", views.contacts, name='contacts'),
+
 
 
     path(
@@ -64,5 +67,13 @@ urlpatterns = [
         views.article_created,
         name="article_created",
     ),
+
+
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(
+        settings.MEDIA_URL,
+        document_root=settings.MEDIA_ROOT
+    )
 
