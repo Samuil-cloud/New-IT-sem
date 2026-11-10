@@ -21,6 +21,7 @@ from django.conf.urls.static import static
 # Импортируем views из папки web_news.news
 from news import views
 from django import forms
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
@@ -28,45 +29,17 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path("category/", views.category, name="category"),
     path("contacts/", views.contacts, name='contacts'),
-
-
-
-    path(
-        "article/<int:article_id>/",
-        views.article_detail,
-        name="article_detail",
-    ),
-
-    path(
-        "category/<str:category_name>/",
-        views.category,
-        name="category_detail",
-    ),
-
-    path(
-        "article/<int:article_id>/edit/",
-        views.edit_article,
-        name="article_edit"
-    ),
-
-
-    path(
-        "test-form/",
-        views.test_form,
-        name="test_form",
-    ),
-
-    path(
-        "add-article/",
-        views.add_article,
-        name="add_article",
-    ),
-
-    path(
-        "article-created/",
-        views.article_created,
-        name="article_created",
-    ),
+    path("article/<int:article_id>/", views.article_detail, name="article_detail",  ),
+    path("category/<str:category_name>/", views.category, name="category_detail"),
+    path("article/<int:article_id>/edit/",views.edit_article, name="article_edit"),
+    path("test-form/",views.test_form, name="test_form",),
+    path( "add-article/", views.add_article,name="add_article",),
+    path( "article-created/",views.article_created,name="article_created", ),
+    path("article/<int:article_id>/delete/", views.delete_article, name="delete_article",),
+    path("accounts/login/",auth_views.LoginView.as_view(template_name="registration/login.html"),
+    name="login"
+),
+    path("accounts/logout/",auth_views.LogoutView.as_view(),name="logout"),
 
 
 ]
