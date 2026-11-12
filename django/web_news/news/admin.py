@@ -16,5 +16,19 @@ class ArticleAdmin(admin.ModelAdmin):
         "is_published",
         "created_at",
     )
+
+    list_display = (
+        "title",
+        "category",
+        "is_published",
+        "is_active",
+    )
+
+    list_filter = (
+        "category",
+        "is_published",
+        "is_active",
+    )
+
     search_fields = ("title", "content")
     ordering = ("-created_at",)

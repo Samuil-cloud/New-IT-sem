@@ -40,7 +40,8 @@ urlpatterns = [
     name="login"
 ),
     path("accounts/logout/",auth_views.LogoutView.as_view(),name="logout"),
-
+    path("article/<int:article_id>/archive/", views.archive_article, name="archive_article"),
+    path("article/<int:article_id>/restore/",views.restore_article,name="article_restore"),
 
 ]
 
