@@ -14,17 +14,15 @@
                 ← На главную
             </a>
 
-            {% if user.is_authenticated %}
+            {% if user.is_superuser %}
 
-            <a href="{% url 'article_edit' article_id=article.id %}">
+            <a href="{% url 'article_edit' article_id=article.id %}" class="btn btn-outline-secondary mb-4">
                 Редактировать новость
             </a>
 
-            <a href="{% url 'delete_article' article_id=article.id %}">
-                Удалить новость
-            </a>
+            <a href="{% url 'delete_article' article_id=article.id %}" class="btn btn-outline-secondary mb-4">Удалить новость</a>
 
-            <a href="{% url 'archive_article' article.id %}">Скрыть новость</a>
+            <a href="{% url 'archive_article' article.id %}" class="btn btn-outline-secondary mb-4">Скрыть новость</a>
 
             {% endif %}
 

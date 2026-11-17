@@ -43,20 +43,28 @@
                     О нас
                 </a>
 
-                <a class="nav-link" href="{% url 'contacts' %}">
+                <a class="nav-link" href="{% url 'contacts' %}" >
                     Контакты
                 </a>
 
                 {% if user.is_authenticated %}
 
-                <a href="{% url 'add_article' %}">
+                <a href="{% url 'add_article' %}" class="nav-link">
                     Добавить новость
                 </a>
 
                 {% endif %}
 
+                {% if perms.news.change_article %}
 
-                <a href="{% url 'admin:index' %}">
+                <a href="{% url 'archived_articles' %}" class="nav-link">
+                    Скрытые новости
+                </a>
+
+                {% endif %}
+
+
+                <a href="{% url 'admin:index' %}" class="nav-link">
                     Админка
                 </a>
                 {% if user.is_authenticated %}
@@ -66,9 +74,9 @@
                 </span>
                 <div class="user-greeting text-white ms-3">
                     {% if user.is_authenticated %}
-                        <p class="mb-0">Привет, {{ user.username }}!</p>
+                        <p class="btn btn-outline-secondary mb-4">Привет, {{ user.username }}!</p>
                     {% else %}
-                        <p class="mb-0">Добро пожаловать на наш новостной портал</p>
+                        <p class="btn btn-outline-secondary mb-4">Добро пожаловать на наш новостной портал</p>
                     {% endif %}
                 </div>
 
